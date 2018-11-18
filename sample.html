@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScriptの基礎1</title>
+</head>
+<body>
+ <script>
+     // 変数
+
+     //let userTitle = 'はじめてのJS';
+     //const x = 99;
+     //alert(userTitle + x);
+
+     /*
+     使ってはいけない変数名（予約語）
+     abstract, boolean, byte, char,
+     class, const, debugger, double,
+     enum, export, extends, final,
+     float, goto, implements, import,
+     int, interface, long, native,
+     package, private, protected, public,
+     short, static, super, synchronized,
+     throws, transient, vlatile
+     */
+
+     // データ型 //
+
+     //let yy = "He's Hero!";
+     //let z = 100;
+
+     /*
+     - 基本型 -
+     数値型(number) : 10, 151, -150 , 0.1,とか数値
+     文字列型(string) : シングル/ダブルクォートで囲まれた0個以上の文字の集合
+     真偽型(boolean) : true (真) / false (偽)
+     特殊型(null/undefined) : 値が未定義であることを表す
+
+     - 参照型 -
+     配列(array) : データの集合（各要素にはインデックス番号でアクセス可能）
+     オブジェクト型 (object) : データの集合（各要素には名前でアクセス可能）
+     関数（function) : 一連の処理（手続き）の集合
+     */
+
+    //文字リテラル//
+     
+    //let y = 'He\'s \nHero!';
+    //alert(y);
+
+     /* 「¥ + 文字」(win) 「\ + 文字」(mac)という書き方で特別な
+     意味を持つ文字を表現する事ができます。
+     このような文字のことをエスケープシーケンス
+     といいます。
+     
+     ¥b : バックスペース
+     ¥f : 改行ページ
+     ¥n : 改行（LF : Line Feed)
+     ¥r : 復帰 (CR : Carriage Return)
+     ¥t : タブ文字
+     ¥¥ : 円マーク
+     ¥' : シングルクォート
+     ¥" : ダブルクォート
+     */
+
+     //配列リテラル (array)
+     /*
+    配列はデータの集合のことです。
+    複数の値を格納できる「仕切りのある入れ物」
+    と思ってください。
+     [] （ブラケットという記号）
+     ['りんご', 'みかん', 'ぶどう', 10]
+      
+    以下の形式で各要素にアクセスします。
+     配列名[インデックス番号][インデックス番号]
+
+
+     */
+    let ary = ['りんご', 'みかん', 'ぶどう', 10];
+    document.writeln(ary[0]); //りんご (1番目の要素を取得)
+
+    let ary2 = ['りんご', ['みかん', 'ぶどう'], 'もも']
+    document.writeln(ary2[2]);
+    document.writeln(ary2[1][0]);
+
+    //オブジェクトリテラル
+    /*
+      オブジェクトとは、名前をキーにアクセスできる配列です。
+      ハッシュ、連想配列などと呼ばれる場合もあります。
+      記法は以下の通りになります。
+      {キー:値, キー:値, ...}
+    */
+
+    let obj = {x:1, y:2, z:3};
+    document.writeln(obj.x); //ドット演算子というアクセス方法
+    document.writeln(obj['x']); //ブラケット演算子というアクセス方法
+    document.writeln(obj.z + obj.y + obj.x);
+
+    //関数リテラル
+    /*
+    関数とは、「なにかしらの入力値（引数またはパラメーター）を与えられることによって、
+    あらかじめ決められた処理を行い、その結果（戻り値）を返す仕組み」
+    のことを言います。「入出力の窓口を持った処理の塊」と言い換えて
+    も良いかもしれません。
+    */
+
+    //未定義値（undefined)
+    let b;
+    let obj3 = {a:12345};
+    document.writeln(b); //undefined(値が設定されていない)
+    document.writeln(obj3.b); //undefined(プロパティが存在しない)
+
+    //演算子
+    /*
+        x = a + b;
+        x,a,bのことをオペランド（リテラル、演算対象の変数という。
+        =,+ オペレータ（演算子）という。
+    
+    算術演算子
+    + : 数値の加算 | 3 + 4 // 7
+    - : 数値の減算 | 1 - 2 // -1
+    * : 数値の乗算 | 5 * 2 // 10
+    / : 数値の除算 | 10 / 5 // 2
+    ++ : 前置加算 | x = 3; a = ++x; //4
+    ++ : 後置加算 | x = 3; a = x++; //3
+    -- : 前置減算 | x = 3; a = --x; //2
+    -- : 後置減算 | x = 3; a = x--; //3
+    */
+
+    document.writeln(10 + 1); // 11
+    document.writeln('10' + 1); //101
+    let today = new Date();
+    document.writeln(1234 + today);
+    
+    //インクリメント演算子（++)とデクリメント演算子（--)
+    /*
+        x++    x = x + 1;
+        x--    x = x - 1;
+    */
+    let x2 = 3;
+    let y2 = x2++;
+    document.writeln(x2); // 4
+    document.writeln(y2); // 3
+
+    let x3 = 3;
+    let y3 = ++x3;
+    document.writeln(x3); //4
+    document.writeln(y3); //4
+
+    //代入演算子
+    /*
+     指定された値をセット（代入）します。
+     
+     = | 変数を値にだいにゅうする。 | x = 1
+     += | 左辺の値に右辺の値を加算したものを代入する。 | x = 3; x += 2 // 5
+     -= | 左辺の値から右辺の値を減算したものを代入する。|  x= 3; x -= 2 // 1
+    */
+
+    //比較演算子
+    /*
+      == | 左辺と右辺の値が等しい場合はtrue
+      != | 左辺と右辺の値が等しくない場合はtrue
+      < | 左辺と右辺より小さい場合はtrue
+      <= | 左辺が右辺以下の場合はtrue
+      > | 左辺が右辺より大きい場合はtrue
+      >= | 左辺が右辺以上の場合はtrue
+      === |　左辺と右辺の値が等しくてデータ型も同じ場合はtrue
+      !== | 左辺と右辺の値が等しくない場合、またはデータ型がことなる場合はtrue
+    */
+    
+
+
+
+
+
+
+
+
+
+     
+ </script>
+</body>
+</html>
